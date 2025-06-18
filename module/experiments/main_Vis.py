@@ -46,17 +46,18 @@ def main_VIS_network():
 
     col1,col2=st.columns([3,1])
     with col1:
-        if "次数分布" in detill_list :
+        if "次数分布" in detill_list and G:
             VIS_hist.visualization_hist(G)
             
     with col2:
-        if "特徴量" in detill_list: 
+        if "特徴量" in detill_list and G: 
             net_parameter.net_parameter(G)
-            
-    downloud_adjacency.downloud_adjacency_list_button(G)
+    
+    if G:
+        downloud_adjacency.downloud_adjacency_list_button(G)
     
     
-    if "可視化" in detill_list:
+    if "可視化" in detill_list and G:
     
         if st.button(f"{dim}Dオブジェクトを生成",key="gene_3d"):
             with st.spinner("生成中"):
