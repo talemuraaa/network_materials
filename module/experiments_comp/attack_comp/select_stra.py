@@ -9,7 +9,7 @@ def select_single_strategy(networks:list,strategy)->dict:
     attack_function={
         "random failures": attack_strategies.random_failure,
         "targeted attack(degree)": attack_strategies.degree_traget_attack,
-        "targeted attack(closeness)":attack_strategies.degree_traget_attack,
+        "targeted attack(closeness)":attack_strategies.closeness_traget_attack,
         "targeted attack(eigenvector)":attack_strategies.eigenvector_target_attack,
         "targeted attack(betweenness)":attack_strategies.betweenness_target_attack
             }
