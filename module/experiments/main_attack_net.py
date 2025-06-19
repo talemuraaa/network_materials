@@ -24,11 +24,11 @@ def single_attack_to_muluti_network():
     
     with col_2:
         strategy=st.selectbox("攻撃戦略",
-                    ["random failures",
-                     "targeted attack(degree)",
-                     "targeted attack(closeness)",
-                     "targeted attack(eigenvector)",
-                     "targeted attack(betweenness)"],
+                    ["random_failures",
+                     "targeted_attack(degree)",
+                     "targeted_attack(closeness)",
+                     "targeted_attack(eigenvector)",
+                     "targeted_attack(betweenness)"],
                     key='strategy')    
         
     networks = []
@@ -74,8 +74,9 @@ def single_attack_to_muluti_network():
         R={}
         i=0
         for label, values in result.items():
-                ax.plot(range(len(values)), values, label=f'{plot_labels[i]}')
-                R[plot_labels[i]]=criterions.robustness(values)
+                R[plot_labels[i]]=criterions.robustness(values)            
+                ax.plot(range(len(values)), values, label=f'{plot_labels[i]},({R[plot_labels[i]]:.5f})')
+
                 i=i+1
                 update_progress(int(i/network_count)*100)
                 
@@ -88,7 +89,7 @@ def single_attack_to_muluti_network():
         ax.legend(loc='upper left', bbox_to_anchor=(1, 1))
 
         
-        fn = 'plot.png'
+        fn = f'{strategy}_plot.png'
         img = io.BytesIO()
         fig.savefig(img, format="png", bbox_inches='tight')
         img.seek(0)
@@ -106,7 +107,7 @@ def single_attack_to_muluti_network():
             {"rubstness": R}, orient='index'
         ).T
         
-        st.dataframe(df, width=200)        
+        st.dataframe(df, width=200)            
 
 #１つのネットワークに対して複数の攻撃戦略を指定して同時に表示する。
 
@@ -122,16 +123,16 @@ def multi_attack_to_network():
     if G:
         st.write("2. 攻撃方法の選択")
         strategy_list=st.multiselect("攻撃戦略",
-                    ["random failures",
-                     "targeted attack(degree)",
-                     "targeted attack(closeness)",
-                     "targeted attack(eigenvector)",
-                     "targeted attack(betweenness)"],
-                    default=["random failures",
-                     "targeted attack(degree)",
-                     "targeted attack(closeness)",
-                     "targeted attack(eigenvector)",
-                     "targeted attack(betweenness)"],
+                    ["random_failures",
+                     "targeted_attack(degree)",
+                     "targeted_attack(closeness)",
+                     "targeted_attack(eigenvector)",
+                     "targeted_attack(betweenness)"],
+                    default=["random_failures",
+                     "targeted_attack(degree)",
+                     "targeted_attack(closeness)",
+                     "targeted_attack(eigenvector)",
+                     "targeted_attack(betweenness)"],
                     key='strategy')
         
     if G is None:

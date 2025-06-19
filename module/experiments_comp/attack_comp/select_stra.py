@@ -7,15 +7,15 @@ from module.experiments_comp.attack_comp import attack_strategies
 def select_single_strategy(networks:list,strategy)->dict:
     
     attack_function={
-        "random failures": attack_strategies.random_failure,
-        "targeted attack(degree)": attack_strategies.degree_traget_attack,
-        "targeted attack(closeness)":attack_strategies.closeness_traget_attack,
-        "targeted attack(eigenvector)":attack_strategies.eigenvector_target_attack,
-        "targeted attack(betweenness)":attack_strategies.betweenness_target_attack
+        "random_failures": attack_strategies.random_failure,
+        "targeted_attack(degree)": attack_strategies.degree_traget_attack,
+        "targeted_attack(closeness)":attack_strategies.closeness_traget_attack,
+        "targeted_attack(eigenvector)":attack_strategies.eigenvector_target_attack,
+        "targeted_attack(betweenness)":attack_strategies.betweenness_target_attack
             }
     
     result={}
-    
+
     for i in range(len(networks)):
         result[i]=attack_function.get(strategy)(networks[i])
         
@@ -40,19 +40,19 @@ def select_strategys_prog(G,strategy_list,progress_callback=None):
         G_ig.vs["name"] = [str(v.index) for v in G_ig.vs]      
           
 
-        if strategy == "random failures":
-            result["random failure"]=attack_strategies.random_failure(G_copy)
+        if strategy == "random_failures":
+            result["random_failure"]=attack_strategies.random_failure(G_copy)
         
-        elif strategy == "targeted attack(degree)":
+        elif strategy == "targeted_attack(degree)":
             result["degree"] =attack_strategies.degree_traget_attack(G_copy)
         
-        elif strategy == "targeted attack(closeness)":                
+        elif strategy == "targeted_attack(closeness)":                
             result["closeness"]= attack_strategies.closeness_traget_attack(G_copy)
             
-        elif strategy == "targeted attack(eigenvector)":                
+        elif strategy == "targeted_attack(eigenvector)":                
             result["eigenvector"]= attack_strategies.eigenvector_target_attack(G_copy)            
         
-        elif strategy == "targeted attack(betweenness)":
+        elif strategy == "targeted_attack(betweenness)":
             result["betweenness"]=attack_strategies.betweenness_target_attack(G_copy)
     
     if progress_callback:

@@ -2,39 +2,6 @@ import networkx as nx
 import random as rd
 import igraph as ig
 
-def closeness_networkx_fast(g: ig.Graph,
-                            normalized: bool = True,
-                            wf_improved: bool = True) -> list:
-
-    n = g.vcount()
-    # Compute connected components
-    comp = g.components()
-    membership = comp.membership
-    sizes = comp.sizes()
-
-    # igraph C implementation: raw closeness = (n-1)/sum_dist
-    raw = g.closeness(normalized=True)
-
-    result = [0.0] * n
-    for v, rv in enumerate(raw):
-        m = sizes[membership[v]]  # size of component containing v
-        if rv > 0:
-            if normalized:
-                if wf_improved:
-                    # Scale raw ((n-1)/sumdist) to NetworkX base ((m-1)/sumdist)
-                    # and apply WF correction: multiply by (m-1)/(n-1) again
-                    scale = ((m-1)/(n-1))**2
-                else:
-                    # normalized without WF
-                    scale = (m-1)/(n-1)
-                result[v] = rv * scale
-            else:
-                # unnormalized: base = m-1 / sumdist = rv * (m-1)/(n-1)
-                result[v] = rv * (m-1)/(n-1)
-        else:
-            result[v] = 0.0
-    return result
-
 
 def random_failure(G:nx.graph):
     
