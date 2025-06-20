@@ -4,7 +4,7 @@ import plotly.graph_objects as go
 
 def filterd_node(G,degree=1):
     filtered_nodes = [n for n in G.nodes() if G.degree(n) > degree]
-    return  G.subgraph(filtered_nodes)
+    return  nx.subgraph(G,filtered_nodes)
 
 
 def draw_plot_plt(G:nx.Graph):

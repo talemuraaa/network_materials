@@ -155,13 +155,28 @@ def multi_attack_to_network():
                 ax.plot(range(len(values)), values, label=label)
                 
                 R[label]=criterions.robustness(values)
+                
+        title=f"{st.session_state.get(f"{0}_model", "Unknown")}"
 
         ax.grid(True)
+        ax.set_title(title)
         ax.set_xlabel("Number of nodes removed")
         ax.set_ylabel("Percentage of nodes in giant connected component")
         ax.legend(loc='upper left', bbox_to_anchor=(1, 1))
-        st.pyplot(fig)
+                
+        fn = f'{title}_plot.png'
+        img = io.BytesIO()
+        fig.savefig(img, format="png", bbox_inches='tight')
+        img.seek(0)
         
+        st.pyplot(fig)        
+        
+        st.download_button(   
+                           label="Download as PNG",
+                            data=img,
+                            file_name=fn,
+                            mime="image/png"
+                            )
         df = pd.DataFrame.from_dict(
             {"rubstness": R}, orient='index'
         ).T

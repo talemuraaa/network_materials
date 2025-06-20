@@ -1,12 +1,9 @@
 import streamlit as st
-from utils import sideber_title
+from utils import sideber_title,page_style
 from pages.materials_modu import material_3
 
-st.set_page_config(
-    page_title="archive"
-    ,layout="centered"
-)
 
+page_style.style("materials")
 
 st.title("📖発表資料")
 st.divider()

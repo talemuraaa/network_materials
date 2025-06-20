@@ -34,12 +34,3 @@ elif main_pages=="Centrality":
     
 elif main_pages=="test":
     main_test.plot_3d()
-
-    
-
-
-
-
-
-
-
