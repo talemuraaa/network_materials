@@ -64,8 +64,8 @@ def chapter1():
                 ステップ２. 各リンクは古いノード$j$に確率
                      """)  
         st.latex(r'''
-        \prod (i\leftrightarrow	j)=
-        \frac{k_j}{\sum_{l}(k_l)}
+        \prod (i\\leftrightarrow	j)=
+        \\frac{k_j}{\sum_{l}(k_l)}
         ''')
         col1, col2 = st.columns([1, 20])
         with col1:

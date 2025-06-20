@@ -241,11 +241,13 @@ def chapter2():
              
              """)
     
-    slide1=get_image_path("slide_2(3).png")
-    slide2=get_image_path("slide_2(2).png")
-    slide3=get_image_path("slide_2(1).png")
+
+    slide2=get_image_path("slide_2_2.png")
+
     st.image(slide2)
+    slide1=get_image_path("slide_2_3.png")
     st.image(slide1)
+    slide3=get_image_path("slide_2_1.png")
     st.image(slide3)
     st.write("""
              初期状態の次数中心性の大きさは$d_D$ > $d_A$ = $d_B$ = $d_C$ > $d_E$ > $d_G$        
