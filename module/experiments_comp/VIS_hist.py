@@ -5,7 +5,7 @@ import numpy as np
 
 #受け取ったネットワークのヒストグラムを表示する。
 
-def visualization_hist(G:nx.graph):
+def visualization_hist(G:nx.Graph):
     fig, ax = plt.subplots(figsize=(7, 4))
     degrees = [degree for _, degree in G.degree()]
     
