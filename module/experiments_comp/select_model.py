@@ -130,6 +130,8 @@ def model_select_ver3(N=None, index=0):
             graph = st.session_state[graph_key]
         # 生成ボタン押下で保存
         
+        
+        
         if st.button("生成", key=f"{index}_gen"):
             graph = generate_graph(model_name, N, params)
             save_graph_to_session(graph_key, graph)

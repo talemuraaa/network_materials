@@ -37,27 +37,29 @@ def build_labels(session_state, network_count):
     labels = []
 
     for i in range(network_count):
-        # 「i_model」のキーからモデル名（フルネーム）を取得
+        # ─── ① まず「i_model」のキーからモデル名（フルネーム）を取得
         full_name = session_state.get(f"{i}_model", "Unknown")
 
-        # ─略称を取得。無ければ full_name を略称として使う
+        # ─── ② 略称を取得。辞書に無ければ full_name を略称として使う
         abbr = abbr_map.get(full_name, full_name)
 
-        # param_config から、そのモデルに紐づくパラメータ設定リストを取得
+        # ─── ③ param_config から、そのモデルに紐づくパラメータ設定リストを取得
         configs = param_config.get(full_name, [])
 
-        # 各パラメータ定義(サフィックス, 表示名, フォーマット)ごとに
-        # session_state から値を取り出し、文字列化してリストに追加
+        # ─── ④ 各パラメータ定義(サフィックス, 表示名, フォーマット)ごとに
+        #         session_state から値を取り出し、文字列化してリストに追加
         params_list = []
         for suffix, param_name, fmt in configs:
+            # 例: suffix="p" ならキー = f"{i}_p"、suffix="ba_m" ならキー = f"{i}_ba_m"
             val = session_state.get(f"{i}_{suffix}", None)
             if val is not None:
+                # 例: fmt="{:.2f}" → fmt.format(val) で小数2桁にフォーマット
                 params_list.append(f"{param_name}={fmt.format(val)}")
 
-        # カンマ区切りでまとめる
+        # カンマ区切りでまとめて "K=10, p=0.20" とかにする
         params = ", ".join(params_list)
 
-        # パラメータがあれば "略称 (パラメータ)"、なければ略称だけ
+        # ─── ⑤ パラメータがあれば "略称 (パラメータ)"、なければ略称だけ
         if params:
             label = f"{abbr} ({params})"
         else:

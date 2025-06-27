@@ -3,7 +3,7 @@ import pandas as pd
 import streamlit as st
 import networkx as nx
 
-def average_degree(G:nx.Graph):
+def average_degree(G:nx.graph):
     degrees = np.array([deg for _, deg in G.degree()], dtype=float)
     mean_deg = degrees.mean()
     

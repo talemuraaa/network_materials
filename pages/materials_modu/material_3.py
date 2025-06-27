@@ -1,5 +1,4 @@
 import streamlit as st
-import pandas as pd
 from utils.image_loader import get_image_path
 from csv_files.csv_loader import load_graph_from_csv
 from module.experiments_comp.draw_plot import draw_2Dplot_go,draw_3Dplot_go
@@ -223,7 +222,7 @@ def chapter1():
              
              """)
     
-    st.write("と表せる。$(1/{\lambda})G=G'$、そのij成分を$g'_{ij}$とすると")
+    st.write("と表せる。$(1/{\\lambda})G=G'$、そのij成分を$g'_{ij}$とすると")
     
     st.latex(r"""
 
@@ -342,7 +341,6 @@ def chapter2():
 
 
              """)
-
 
 def main_material():
 
