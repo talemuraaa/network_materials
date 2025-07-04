@@ -3,7 +3,7 @@ import random as rd
 import igraph as ig
 
 
-def random_failure(G:nx.graph):
+def random_failure(G:nx.Graph):
     
     N=nx.number_of_nodes(G)
     node_list = list(G.nodes)
@@ -16,7 +16,7 @@ def random_failure(G:nx.graph):
 
     return rf
 
-def degree_traget_attack(G:nx.graph):
+def degree_traget_attack(G:nx.Graph):
 
     N=nx.number_of_nodes(G)
     G_ig = ig.Graph.from_networkx(G)
@@ -31,7 +31,7 @@ def degree_traget_attack(G:nx.graph):
     
     return dta
 
-def closeness_traget_attack(G:nx.graph):
+def closeness_traget_attack(G:nx.Graph):
     N=nx.number_of_nodes(G)
     G_ig = ig.Graph.from_networkx(G)
     G_ig.vs["name"] = [str(v.index) for v in G_ig.vs]
@@ -46,7 +46,7 @@ def closeness_traget_attack(G:nx.graph):
         
     return cta
 
-def betweenness_target_attack(G:nx.graph):
+def betweenness_target_attack(G:nx.Graph):
 
     N=nx.number_of_nodes(G)
     G_ig = ig.Graph.from_networkx(G)
@@ -62,7 +62,7 @@ def betweenness_target_attack(G:nx.graph):
 
     return bta
 
-def eigenvector_target_attack(G:nx.graph):
+def eigenvector_target_attack(G:nx.Graph):
 
     N=nx.number_of_nodes(G)
     G_ig = ig.Graph.from_networkx(G)

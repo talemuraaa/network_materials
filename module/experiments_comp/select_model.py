@@ -16,7 +16,6 @@ def generate_graph(model_name, N, params):
     elif model_name == "Holme-Kim model":
         return nx.powerlaw_cluster_graph(N, params["m"], params["p"])
     elif model_name == "ex random walk model":
-        # 自作モデル呼び出し。models モジュールが必要
         return models.step_RW_graph(N, params["p"])
     else:
         raise ValueError("Unknown model")

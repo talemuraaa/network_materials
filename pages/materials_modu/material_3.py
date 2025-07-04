@@ -292,7 +292,7 @@ def chapter2():
     
     st.subheader("結果と考察")
     
-    image_path1=get_image_path("targeted_attack(degree)_plot.png")
+    image_path1=get_image_path("material_3","targeted_attack(degree)_plot.png")
     st.image(image_path1,width=700)
     
     st.write("""
@@ -307,9 +307,10 @@ def chapter2():
              
              """)
     
+    
     col1,col2=st.columns([1,1])
-    image_path2=get_image_path("targeted_attack(closeness)_plot (5).png")   
-    image_path1=get_image_path("targeted_attack(closeness)_plot (6).png")         
+    image_path2=get_image_path("material_3","targeted_attack(closeness)_plot (5).png")   
+    image_path1=get_image_path("material_3","targeted_attack(closeness)_plot (6).png")         
     with col1:
         st.image(image_path1)
     with col2:

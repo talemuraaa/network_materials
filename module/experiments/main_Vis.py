@@ -3,7 +3,7 @@ import networkx as nx
 import plotly.io as pio
 from module.experiments_comp.draw_plot import draw_3Dplot_go,draw_2Dplot_go
 from module.experiments_comp.select_model import model_select_ver3
-from module.experiments_comp import net_parameter,downloud_adjacency,VIS_hist
+from module.experiments_comp import net_parameter,downloud_adjacency,VIS_hist,build_labels
 
 def filterd_node(G,degree=0):
     filtered_nodes = [n for n in G.nodes() if G.degree(n) > degree]
@@ -27,7 +27,7 @@ def main_VIS_network():
     col_another,col_vis=st.columns([1,1],border=True)
         
     with col_another:
-        detill_list=st.multiselect("表示内容",["次数分布","特徴量","可視化","中心性"],default=["次数分布","特徴量","可視化"],key="detill")
+        detill_list=st.multiselect("表示内容",["次数分布","特徴量","可視化","中心性"],default=["可視化"],key="detill")
         
     with col_vis:
         
@@ -54,7 +54,9 @@ def main_VIS_network():
             net_parameter.net_parameter(G)
     
     if G:
-        downloud_adjacency.downloud_adjacency_list_button(G)
+        labels=build_labels.build_labels(st.session_state,1)
+        name=st.text_input("filename",key="input_filename",value=f"{labels[0]}.csv")
+        downloud_adjacency.downloud_adjacency_list_button(G,filename=name)
     
     
     if "可視化" in detill_list and G:

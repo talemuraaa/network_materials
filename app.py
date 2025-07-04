@@ -44,7 +44,7 @@ st.markdown(
         https://www.maruzen-publishing.co.jp/book/b10123080.html
         #### 2. _ゲーム理論からの社会ネットワーク分析_  
         https://www.ohmsha.co.jp/book/9784274230899/
-        #### 3. __ネットワーク科学__ (申請中)
+        #### 3. __ネットワーク科学__ 
         https://www.kyoritsu-pub.co.jp/book/b10003149.html 
         #### 4. __複雑ネットワークにおける最適化__ (申請中)
         https://www.kindaikagaku.co.jp/book_list/detail/9784764960558/

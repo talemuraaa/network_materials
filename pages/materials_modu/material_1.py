@@ -38,7 +38,7 @@ def chapter1():
                         
                  """)
     
-    image_path1 =get_image_path("takemura_01.png")
+    image_path1 =get_image_path("material_1","takemura_01.png")
     st.image(image_path1)
     
 
@@ -88,7 +88,7 @@ def chapter1():
                  """)
     
     with col2:
-        image_path1=get_image_path("BAmodel_VIS.png")
+        image_path1=get_image_path("material_1","BAmodel_VIS.png")
         st.image(image_path1,width=800)      
     
     col1,col2=st.columns([2,5])
@@ -98,7 +98,7 @@ def chapter1():
                  生成せたネットワークの次数分布は明らかにべき乗則に従っている。
                  """)
     with col2:
-        image_path2 =  get_image_path("BAmodel_2.png")
+        image_path2 =  get_image_path("material_1","BAmodel_2.png")
         st.image(image_path2,width=800)
         
     
@@ -134,7 +134,7 @@ def chapter2():
             アイデアはランダムな繋がりだけではなく、新しい隣接ノードのさらに隣り合ったノードと繋がる。
              """)
     
-    image_path = get_image_path("takemura_02.png")
+    image_path = get_image_path("material_1","takemura_02.png")
     st.image(image_path)
     
     with st.container(border=True):
@@ -166,7 +166,7 @@ def chapter2():
     
     st.header("各特徴量")
     
-    image_path =  get_image_path("random_walk_hist1_2.png")
+    image_path =  get_image_path("material_1","random_walk_hist1_2.png")
     st.image(image_path)    
     
     st.write("""
@@ -175,7 +175,7 @@ def chapter2():
              $l=1$の時、クラスター係数が最大になる。
              """)
     
-    image_path =get_image_path("random_walk_hist1_12.png")
+    image_path =get_image_path("material_1","random_walk_hist1_12.png")
     st.image(image_path)        
     
     st.write("""
@@ -212,10 +212,10 @@ def chapter2():
              """)
     
 
-    image_path = get_image_path("takemura_03.png")
+    image_path = get_image_path("material_1","takemura_03.png")
     st.image(image_path,width=1000)
 
-    image_path = get_image_path("takemura_04.png")
+    image_path = get_image_path("material_1","takemura_04.png")
     st.image(image_path,width=1000)
     
     with st.container(border=True):
@@ -273,13 +273,13 @@ def chapter2():
 
     
     with feature1:
-        image_path = get_image_path("step_RW_hist.png")
+        image_path = get_image_path("material_1","step_RW_hist.png")
         st.image(image_path)
     
-        image_path = get_image_path("step_RW_hist2.png")
+        image_path = get_image_path("material_1","step_RW_hist2.png")
         st.image(image_path)
 
-    image_path = get_image_path("step_RW_deg_VIS.png")
+    image_path = get_image_path("material_1","step_RW_deg_VIS.png")
     st.image(image_path)            
 
 

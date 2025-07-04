@@ -6,11 +6,6 @@ from module.experiments.main_hist import experiment_hist_ver2
 from module.experiments import main_centrality,main_test,main_Vis
 
 
-
-
-
-
-
 page_style.style("storage")
 
 sideber_title.sideber_title()

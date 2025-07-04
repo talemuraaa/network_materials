@@ -12,7 +12,7 @@ st.divider()
 
 page_id=st.sidebar.selectbox(
     '選択してください',
-    ['第1回','第2回'])
+    ['第1回','第2回','第3回'])
 
 if page_id == "第1回":
     material_1.main_material()

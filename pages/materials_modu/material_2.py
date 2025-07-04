@@ -49,7 +49,7 @@ def chapter0():
              わざわざ自作のモデルを使う理由もないので全てHolme-Kim modelに置き換えました。
              """) 
     
-    image_path=get_image_path("5030_0_1.png")
+    image_path=get_image_path("material_2","5030_0_1.png")
     st.image(image_path)
         
     st.write("""
@@ -241,11 +241,11 @@ def chapter2():
              
              """)
     
-    slide2=get_image_path("slide_2_2.PNG")
+    slide2=get_image_path("material_2","slide_2_2.PNG")
     st.image(slide2)
-    slide1=get_image_path("slide_2_3.PNG")
+    slide1=get_image_path("material_2","slide_2_3.PNG")
     st.image(slide1)
-    slide3=get_image_path("slide_2_1.PNG")
+    slide3=get_image_path("material_2","slide_2_1.PNG")
     st.image(slide3)
     st.write("""
              初期状態の次数中心性の大きさは$d_D$ > $d_A$ = $d_B$ = $d_C$ > $d_E$ > $d_G$        
@@ -271,26 +271,26 @@ def chapter2():
     tab1,tab2,tab3=st.tabs(["degree","closeness","betweenness"])
     
     with tab1:
-        compare_d = get_image_path("degree_centrality_compare_in_random.png")
+        compare_d = get_image_path("material_2","degree_centrality_compare_in_random.png")
         st.image(compare_d)
     with tab2:    
-        compare_c = get_image_path("degree_closeness_compare_in_random.png")
+        compare_c = get_image_path("material_2","degree_closeness_compare_in_random.png")
         st.image(compare_c)    
     with tab3:
-        compare_b = get_image_path("degree_betweennesss_compare_in_random.png")
+        compare_b = get_image_path("material_2","degree_betweennesss_compare_in_random.png")
         st.image(compare_b)    
     
     st.subheader("_BAモデル_")
     tab1,tab2,tab3=st.tabs(["degree","closeness","betweenness"])
     
     with tab1:
-        compare_d = get_image_path("degree_centrality_compare.png")
+        compare_d = get_image_path("material_2","degree_centrality_compare.png")
         st.image(compare_d)
     with tab2:    
-        compare_c = get_image_path("degree_closeness_compare.png")
+        compare_c = get_image_path("material_2","degree_closeness_compare.png")
         st.image(compare_c)    
     with tab3:
-        compare_b = get_image_path("degree_betweennesss_compare.png")
+        compare_b = get_image_path("material_2","degree_betweennesss_compare.png")
         st.image(compare_b)
         
     st.write("""
@@ -315,19 +315,19 @@ def chapter2():
 
     with tab1:
         st.subheader("random network model(P=0.3)")
-        image=get_image_path("rdmodel_attack_0530.png")
+        image=get_image_path("material_2","rdmodel_attack_0530.png")
         st.image(image)
     with tab2:        
         st.subheader("watts-strogatz model(k=5,p=0.3)") 
-        image=get_image_path("wsmodel_k5p3_attack.png")
+        image=get_image_path("material_2","wsmodel_k5p3_attack.png")
         st.image(image)
     with tab3:
         st.subheader("Barabasi-Albert model(m=5)")    
-        image=get_image_path("bamodel_m5_attack_0530.png")
+        image=get_image_path("material_2","bamodel_m5_attack_0530.png")
         st.image(image)
     with tab4:
         st.subheader("random walk model(m=5,p=0.5)")     
-        image=get_image_path("rwmodel_m5p5_attack.png")
+        image=get_image_path("material_2","rwmodel_m5p5_attack.png")
         st.image(image)
         
     st.write("""
