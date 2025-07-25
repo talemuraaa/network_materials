@@ -1,5 +1,7 @@
 import networkx as nx
 import random as rd
+import math
+from collections import Counter
 
 #自作モデル集
 
@@ -118,6 +120,50 @@ def mauntein_graph(N:int):
         for k in path:
             G.add_edge(i,k)   
         
+    return G
+
+
+def ex_cluster_graph(N:int,p:float,x:int,A=2.0)->nx.Graph:
+    """
+    ・return :Graph\n
+    ・動的なネットワーク生成モデル。\n
+    ・ノード追加の際、ランダムな一点を選び、そこからl回ランダムウォークを行う。
+    この時、確率pでランダムジャンプを行う。到達回数がx以上のノードのみとリンクを接続する。\n
+    ・ネットワークサイズに応じて、探索範囲を対数スケールで拡大\n
+    ・initial_nodesの大きさは仮
+    """
+    
+    initial_nodes = int(3 * math.log(N))
+    G=nx.complete_graph(initial_nodes)
+    
+    for i in range(initial_nodes,N):
+        l = math.ceil(A * math.log(max(2, i)))
+        
+        node_list=list(nx.nodes(G))#ノードリストを取得。
+        j=rd.choice(node_list)
+        
+        visited_count = Counter()#到達回数をカウント
+            
+            
+        current_node=j#現在位置
+            
+        for _ in range(l): #ノードjからランダムウォークを開始
+            if rd.random()<1-p: #確率1-pで隣接ノードに移動
+                neighbors = list(G.neighbors(current_node))#jの隣接ノードのリスト
+                if neighbors:
+                    next_node = rd.choice(neighbors)#リストからランダムに１つnext_nodeを選択
+                    visited_count[next_node] += 1 #到達回数カウント＋１
+                    current_node = next_node
+            else: #確率pでランダムなノードにテレポート
+                next_nodes=[node for node in G.nodes() if node != current_node]
+                next_node=rd.choice(next_nodes)
+                visited_count[next_node] += 1 #到達回数カウント＋１
+            
+        add_link_list= [node for node, count in visited_count.items() if count >= x]
+        
+        for node in add_link_list:
+            G.add_edge(i,node)
+                
     return G
         
         

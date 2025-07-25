@@ -46,9 +46,8 @@ st.markdown(
         https://www.ohmsha.co.jp/book/9784274230899/
         #### 3. __ネットワーク科学__ 
         https://www.kyoritsu-pub.co.jp/book/b10003149.html 
-        #### 4. __複雑ネットワークにおける最適化__ (申請中)
-        https://www.kindaikagaku.co.jp/book_list/detail/9784764960558/
-        #### 5. __ネットワーク分析 第2版__ (申請中)
+        #### 4. __複雑ネットワークにおける最適化__ 
+        https://www.kindaikagaku.co.jp/book_list/
         https://www.kyoritsu-pub.co.jp/book/b10003845.html
 
         """
